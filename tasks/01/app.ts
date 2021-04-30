@@ -21,35 +21,20 @@ interface IAnimal {
   age: number;
 }
 
-// 4th and 5th tasks
-// const animal: IAnimal = {
-//   name: faker.name.firstName(),
-//   type: AnimalType.DOG,
-//   breed: "French bulldog",
-//   colors: [AnimalColors.WHITE, AnimalColors.BROWN],
-//   hasTail: faker.datatype.boolean(),
-//   age: 2,
-// };
-
-// console.log(animal);
-
-// 6th task, 7th task
 const roll = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min) + min);
 
+const animalColorsPool = [
+  AnimalColors.BLACK,
+  AnimalColors.BROWN,
+  AnimalColors.WHITE,
+];
 const getRandomAnimalColor = (): AnimalColors =>
-  faker.random.arrayElement([
-    AnimalColors.BLACK,
-    AnimalColors.BROWN,
-    AnimalColors.WHITE,
-  ]);
+  faker.random.arrayElement(animalColorsPool);
 
+const animalTypesPool = [AnimalType.CAT, AnimalType.DOG, AnimalType.HAMSTER];
 const getRandomAnimalType = (): AnimalType =>
-  faker.random.arrayElement([
-    AnimalType.CAT,
-    AnimalType.DOG,
-    AnimalType.HAMSTER,
-  ]);
+  faker.random.arrayElement(animalTypesPool);
 
 const getRandomAnimal = (): IAnimal => ({
   name: faker.name.firstName(),
